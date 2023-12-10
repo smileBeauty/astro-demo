@@ -1,0 +1,30 @@
+---
+import Navigation from "../components/navigation.astro";
+import Footer from "../components/footer.astro";
+console.log("它运行在终端而非浏览器！");
+const platform = "github";
+const username = "withastro";
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content = {Astro.generator} />
+  </head>
+  <body>
+    <div class="text">Hello, World!</div>
+    <Navigation />
+    <ul>
+      <li><a href="/posts/post-1">文章 1</a></li>
+      <li><a href="/posts/post-2">文章 2</a></li>
+      <li><a href="/posts/post-3">文章 3</a></li>
+    </ul>
+    <Footer platform={platform} username={username} />
+  </body>
+</html>
+
+<style>
+  .text {
+    color: orange;
+  }
+</style>
