@@ -1,9 +1,16 @@
 ---
+import BaseLayout from "./base-layout.astro";
 const { frontmatter } = Astro.props;
 ---
-<slot name="head" />
-<h1>{frontmatter.title}</h1>
-<p>Written by {frontmatter.author}</p>
-<p>description {frontmatter.description}</p>
-<img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-<slot />
+<!-- <BaseLayout pageTitle="posts"> -->
+  <div>
+    <ul>
+      { frontmatter.title ? <li>markdown title {frontmatter.title}</li> : null}
+      { frontmatter.pubDate ? <li>markdown pubDate {frontmatter.pubDate}</li> : null}
+      { frontmatter.description ? <li>markdown description {frontmatter.titdescriptionle}</li> : null}
+      { frontmatter.author ? <li>markdown author {frontmatter.author}</li> : null}
+    </ul>
+    <slot>
+  </div>
+<!-- <BaseLayout> -->
+

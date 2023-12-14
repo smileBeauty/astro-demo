@@ -1,18 +1,36 @@
 ---
 import "normalize.css";
-const { pageTitle } = Astro.props;
+import "@/styles/reset.css"
+import Header from "@/components/header.astro";
+import Menu from "@/components/menu.astro";
+import Footer from "@/components/footer.astro";
+const { pageTitle = "demo" } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="generator" content = {Astro.generator} />
-  <title>{pageTitle}</title>
-</head>
-<body>
-  <div>{pageTitle}</div>
-  <slot />
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <div class="base-content">
+      <Menu />
+      <slot />
+    </div>
+    <Footer />
+  </body>
 </html>
+
+<style>
+  .base-content {
+    height: calc(100vh - 135px);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+</style>

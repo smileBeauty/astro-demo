@@ -1,25 +1,9 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
-import Navigation from "@/components/navigation.astro";
-import Footer from "@/components/footer.astro";
-const allPost = await Astro.glob('../pages/posts/*.md');
-const platform = "github";
-const username = "withastro";
 ---
 
-<BaseLayout>
-    <div class="text">Hello, World!</div>
-    <Navigation />
-    <ul>
-      {
-        allPost.map(postItem => {
-          return (
-            <li><a href={postItem.url}>{postItem.frontmatter.title}</a></li>
-          );
-        })
-      }
-    </ul>
-    <Footer platform={platform} username={username} />
+<BaseLayout pageTitle="首页">
+  <div class="text">Hello, World!</div>
 </BaseLayout>
 
 <style>
