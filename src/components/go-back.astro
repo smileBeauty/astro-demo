@@ -1,0 +1,26 @@
+---
+
+---
+
+<div class="go-back">
+  <a href="javascript:void 0" class="go-back_a">go back</a>
+</div>
+
+<script>
+  const goBackATag = document.querySelector(".go-back_a");
+  goBackATag?.addEventListener('click', () => {
+    window.history.go(-1);
+  })
+</script>
+
+<style>
+  .go-back {
+    height: 75px;
+    line-height: 75px;
+    padding: 0 50px;
+    background-color: #72ca9b;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>

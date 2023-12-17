@@ -1,9 +1,11 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
+import Greeting from "@/components/greeting";
 ---
 
 <BaseLayout pageTitle="首页">
   <div class="text">Hello, World!</div>
+  <Greeting message="哈哈哈哈哈哈哈" client:idle />
 </BaseLayout>
 
 <style>
