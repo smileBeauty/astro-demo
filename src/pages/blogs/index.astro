@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/base-layout.astro"
+const allBlogs = await getCollection("blogs");
+---
+
+<BaseLayout pageTitle="blogs index">
+  <div>
+    <h1>blogs 文章目录</h1>
+    <ul>
+      {allBlogs.map((blog) => <li><a href={`/blogs/${blog.slug}`}>{blog.data.title}</a></li>)}
+    </ul>
+  </div>
+</BaseLayout>
