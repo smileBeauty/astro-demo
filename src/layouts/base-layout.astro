@@ -23,7 +23,7 @@ const { pageTitle = "demo" } = Astro.props;
       <Menu />
       <slot />
     </div>
-    <Footer />
+    <Footer transition:animate="fade" />
     <script>
       import '../scripts/view-transitions.js';
     </script>

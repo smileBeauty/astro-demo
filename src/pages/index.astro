@@ -1,11 +1,20 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
-import Greeting from "@/components/greeting";
+import Greeting from "@/components/react/greeting";
 ---
 
 <BaseLayout pageTitle="首页">
-  <div class="text">Hello, World!</div>
-  <Greeting message="哈哈哈哈哈哈哈" client:idle />
+  <div>
+    <div class="text">Hello, World!</div>
+    <Greeting message="哈哈哈哈哈哈哈" client:idle />
+    <Fragment set:text={'1111111'} />
+    <Fragment set:html={'<p style="color: red;">111111111</p>'} />
+    <>
+      <p>aaa</p>
+      <p>bbb</p>
+      <p>ccc</p>
+    </>
+  </div>
 </BaseLayout>
 
 <style>

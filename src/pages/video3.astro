@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import Video from "@/components/video2.astro";
+---
+
+<BaseLayout pageTitle="video3">
+  <h1>video3</h1>
+  <button type="button" class="video3_btn">跳转video4</button>
+  <Video transition:name="media-player" transition:persist />
+</BaseLayout>
+
+<script>
+  import { navigate } from "astro:transitions/client";
+  const _btn = document.querySelector(".video3_btn");
+  _btn?.addEventListener("click", () => {
+    navigate('/video4')
+  });
+</script>

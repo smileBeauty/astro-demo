@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "baseUrl": "D:/code-practice/astro-demo",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"

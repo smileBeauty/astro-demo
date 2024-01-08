@@ -1,39 +1,51 @@
 ---
-import "normalize.css";
-import "@/styles/reset.css"
-import Header from "@/components/header.astro";
+import BaseLayout from "./base-layout.astro";
 import GoBack from "@/components/go-back.astro";
-import Footer from "@/components/footer.astro";
 const { pageTitle = "demo", frontmatter = {} } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
+<BaseLayout pageTitle={pageTitle}>
+  <div class="markdown-post-layout">
     <GoBack />
     <div class="markdown-content">
       <ul>
-        { frontmatter.title ? <li>markdown title {frontmatter.title}</li> : null}
-        { frontmatter.pubDate ? <li>markdown pubDate {frontmatter.pubDate}</li> : null}
-        { frontmatter.description ? <li>markdown description {frontmatter.titdescriptionle}</li> : null}
-        { frontmatter.author ? <li>markdown author {frontmatter.author}</li> : null}
-        { frontmatter.tags ? <li>markdown tags {frontmatter.tags.join('  ')}</li> : null}
-        { frontmatter.image ? <img src={frontmatter.image.url} alt={frontmatter.image.alt} /> : null}
+        {frontmatter.title ? <li>markdown title {frontmatter.title}</li> : null}
+        {
+          frontmatter.pubDate ? (
+            <li>markdown pubDate {frontmatter.pubDate}</li>
+          ) : null
+        }
+        {
+          frontmatter.description ? (
+            <li>markdown description {frontmatter.titdescriptionle}</li>
+          ) : null
+        }
+        {
+          frontmatter.author ? (
+            <li>markdown author {frontmatter.author}</li>
+          ) : null
+        }
+        {
+          frontmatter.tags ? (
+            <li>markdown tags {frontmatter.tags.join("  ")}</li>
+          ) : null
+        }
+        {
+          frontmatter.image ? (
+            <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+          ) : null
+        }
       </ul>
       <slot />
     </div>
-    <Footer />
-  </body>
-</html>
+  </div>
+</BaseLayout>
 
 <style>
+  .markdown-post-layout {
+    width: 100%;
+  }
+
   .markdown-content {
     height: calc(100vh - 210px);
     max-width: 1780px;

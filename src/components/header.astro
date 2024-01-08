@@ -1,8 +1,8 @@
 ---
-
+import { fade } from "astro:transitions";
 ---
 
-<header class="header">header</header>
+<header class="header" transition:animate={fade({ duration: '0.5s' })}>header</header>
 
 <style>
   .header {

@@ -24,8 +24,23 @@ const skills: string[] = [
     <ul>
       {skills.map((skill) => <li>{skill}</li>)}
     </ul>
+    <button id="prefetchBtn">prefetch</button>
   </div>
 </BaseLayout>
+
+<script>
+  import { prefetch } from "astro:prefetch";
+
+  const _prefetchBtn = document.querySelector("#prefetchBtn");
+  if (_prefetchBtn) {
+    _prefetchBtn.addEventListener("click", () => {
+      prefetch("/posts/post-1", {
+        with: "fetch",
+        ignoreSlowConnection: true,
+      });
+    });
+  }
+</script>
 
 <style>
   .text {
